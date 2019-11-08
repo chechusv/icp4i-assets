@@ -1,0 +1,55 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "title" : "Loans Rest Service",
+    "version" : "1.0.0"
+  },
+  "schemes" : [ "http" ],
+  "basePath" : "/loans-rest-service",
+  "consumes" : [ "application/json" ],
+  "produces" : [ "application/json" ],
+  "paths" : {
+    "/calculate" : {
+      "get" : {
+        "responses" : {
+          "200" : {
+            "description" : "200 OK",
+            "schema" : {
+              "$ref" : "#/definitions/paymentAmount"
+            }
+          }
+        },
+        "parameters" : [ {
+          "name" : "amount",
+          "type" : "number",
+          "required" : false,
+          "in" : "query",
+          "format" : "float"
+        }, {
+          "name" : "duration",
+          "type" : "integer",
+          "required" : false,
+          "in" : "query",
+          "format" : "int32"
+        }, {
+          "name" : "rate",
+          "type" : "number",
+          "required" : false,
+          "in" : "query",
+          "format" : "float"
+        } ]
+      }
+    }
+  },
+  "definitions" : {
+    "paymentAmount" : {
+      "properties" : {
+        "paymentAmount" : {
+          "type" : "number",
+          "format" : "float"
+        }
+      },
+      "additionalProperties" : false
+    }
+  }
+}
